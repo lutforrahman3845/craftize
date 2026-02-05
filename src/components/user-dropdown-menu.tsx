@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 import {
-  BetweenHorizontalStart,
-  FileText,
   Moon,
-  Settings,
   UserCircle,
-  Users,
+  Calendar,
+  Settings,
+  HelpCircle,
+  LogOut,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -15,9 +15,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Switch } from "@/components/ui/switch";
@@ -49,13 +46,13 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
                 href="#"
                 className="text-sm text-mono hover:text-primary font-semibold"
               >
-                Sean
+                Jon Snow
               </Link>
               <a
                 href={`mailto:sean@kt.com`}
                 className="text-xs text-muted-foreground hover:text-primary"
               >
-                sean@kt.com
+                ceo@craftaize.com
               </a>
             </div>
           </div>
@@ -65,38 +62,32 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
 
         <DropdownMenuItem asChild>
           <Link href="#" className="flex items-center gap-2">
-            <UserCircle />
+            <UserCircle className="size-4" />
             My Profile
           </Link>
         </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="#" className="flex items-center gap-2">
+            <Calendar className="size-4" />
+            Calendar
+          </Link>
+        </DropdownMenuItem>
 
-        {/* My Account Submenu */}
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger className="flex items-center gap-2">
-            <Settings />
-            My Account
-          </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className="w-48">
-            <DropdownMenuItem asChild>
-              <Link href="#" className="flex items-center gap-2">
-                <FileText />
-                My Profile
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="#" className="flex items-center gap-2">
-                <Users />
-                Members & Roles
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="#" className="flex items-center gap-2">
-                <BetweenHorizontalStart />
-                Integrations
-              </Link>
-            </DropdownMenuItem>
-          </DropdownMenuSubContent>
-        </DropdownMenuSub>
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem asChild>
+          <Link href="#" className="flex items-center gap-2">
+            <Settings className="size-4" />
+            Settings
+          </Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem asChild>
+          <Link href="#" className="flex items-center gap-2">
+            <HelpCircle className="size-4" />
+            Help & Support
+          </Link>
+        </DropdownMenuItem>
 
         <DropdownMenuSeparator />
 
@@ -116,7 +107,8 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
           </div>
         </DropdownMenuItem>
         <div className="p-2 mt-1">
-          <Button variant="outline" size="sm" className="w-full">
+          <Button variant="outline" size="sm" className="w-full gap-2">
+            <LogOut className="size-4" />
             Logout
           </Button>
         </div>
